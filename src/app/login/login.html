@@ -1,0 +1,64 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="app-header">
+      <div class="logo-icon">
+        <i class="fas fa-a"></i>
+      </div>
+      <div class="app-name">AURORA</div>
+      <h2 class="welcome-text">Welcome Back!</h2>
+      <p class="subtitle">
+        Please log in to your account
+      </p>
+    </div>
+
+    <form (ngSubmit)="onLogin()">
+      <div class="input-group">
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="user.email"
+          placeholder="Email Address"
+          required
+        />
+        <i class="fas fa-envelope icon"></i>
+      </div>
+
+      <div class="input-group">
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="user.password"
+          placeholder="Password"
+          required
+        />
+        <i class="fas fa-lock icon"></i>
+      </div>
+
+      <div class="login-options">
+        <label class="remember-me-wrapper">
+            <input type="checkbox" name="rememberMe" [(ngModel)]="rememberMe" />
+            Remember Me
+        </label>
+        <a href="#" class="forgot-link-text">Forgot Password?</a>
+      </div>
+
+      <button
+        type="submit"
+        class="login-button"
+        [disabled]="!user.email || !user.password"
+      >
+        Log In
+      </button>
+    </form>
+    <div class="social-login-wrapper">
+        <div class="social-login-buttons">
+            <button class="social-btn facebook"><i class="bi bi-facebook"></i></button>
+            <button class="social-btn google"><i class="bi bi-google"></i></button>
+            <button class="social-btn apple"><i class="bi bi-apple"></i></button>
+        </div>
+    </div>
+    <div class="footer-text">
+      Don't have an account? <a routerLink="/signup" class="signup-link">Sign Up</a>
+    </div>
+  </div>
+</div>
